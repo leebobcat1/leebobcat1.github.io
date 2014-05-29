@@ -96,7 +96,7 @@
         transformedCharCode = characterToNumber(character)-65;
         transformedCharCode += myAdder;
         transformedCharCode *= myMultiplier;
-        transformedCharCode = transformedCharCode %26;
+        transformedCharCode = transformedCharCode % 26;
         transformedCharCode += 65;
         
         // WORK:
@@ -120,6 +120,17 @@
         var myMultiplier = parseInt(multiplier.value);
         var inverseAdder = -1;
         var inverseMultiplier = -1;
+        
+        for (var a=0; a<=25; a++){
+          var checkAdd = myAdder+a;
+          if (checkAdd%26 == 0){
+            inverseAdder = a;
+          }
+          var check = myMultiplier*a;
+          if (check%26 == 1){
+            inverseMultiplier = a;
+          }
+        }
 
         // WORK:
         // LOOP OVER THE NUMBERS BETWEEN 0 and 26 here. Once you find the number x such that
