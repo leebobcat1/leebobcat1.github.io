@@ -66,6 +66,7 @@
 
         var output = "";
         for (var i = 0; i < input.length; i = i + 1) {
+          output+= decrypt_character(input[i], myAdder, myMultiplier);
           // WORK:
           // Call decrypt_character with the arguments input[i], myAdder, myMultiplier
           // and concatenate the returned value to output.
@@ -92,6 +93,12 @@
           return character;
         }
         var transformedCharCode = -1;
+        transformedCharCode = characterToNumber(character)-65;
+        transformedCharCode += myAdder;
+        transformedCharCode *= myMultiplier;
+        transformedCharCode = transformedCharCode %26;
+        transformedCharCode += 65;
+        
         // WORK:
         // Encrypt the character. Remember that "A" -> 65 in ASCII, so you'll first need to subtract
         // characterToNumber("A") and then add it back in before calling numberToCharacter.
